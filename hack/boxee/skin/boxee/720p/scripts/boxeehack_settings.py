@@ -62,6 +62,31 @@ def toggle_jump_to_last_unwatched():
     common.file_put_contents("/data/etc/.jump_to_unwatched_enabled", jumpenabled)
     common.set_string("jump-to-unwatched", jumpenabled)
 
+def get_boxeedin():
+    boxeedin = common.file_get_contents("/data/etc/.boxeedin")
+    if boxeedin == "":
+        boxeedin = "0"
+    return boxeedin
+
+def boxeedin ():
+    dialog = xbmcgui.Dialog()
+    boxeedin = get_boxeedin()
+
+    if boxeedin == "1":
+        hosts = ""
+        boxeedin = "0"
+    else:
+        hosts = "209.189.228.151 app.boxee.tv\n209.189.228.151 res.boxee.tv\n209.189.228.151 dl.boxee.tv\n209.189.228.151 0.ping.boxee.tv\n209.189.228.151 1.ping.boxee.tv\n209.189.228.151 2.ping.boxee.tv\n209.189.228.151 3.ping.boxee.tv\n209.189.228.151 4.ping.boxee.tv\n209.189.228.151 5.ping.boxee.tv\n209.189.228.151 6.ping.boxee.tv\n209.189.228.151 7.ping.boxee.tv\n209.189.228.151 8.ping.boxee.tv\n209.189.228.151 9.ping.boxee.tv\n"
+        boxeedin = "1"
+
+
+    common.file_put_contents("/data/etc/hosts", hosts)
+    common.file_put_contents("/data/etc/.boxeedin", boxeedin)
+    common.set_string("boxeedin", boxeedin)
+
+    dialog.ok("Use Boxeed.In Server", "You must restart Boxee for the changes to take effect!")
+
+
 def get_homeenabled_value():
     homeenabled = common.file_get_contents("/data/etc/.home_enabled")
     if homeenabled == "":
@@ -397,6 +422,7 @@ if (__name__ == "__main__"):
     if command == "subtitles-provider": subtitle_provider("set", sys.argv[2], sys.argv[3])
     if command == "featured_next": featured_next()
     if command == "featured_previous": featured_previous()
+
     if len(sys.argv) == 4:
         if command == "homeenabled": toggle_homeenabled(sys.argv[2], sys.argv[3])
     else:
@@ -404,5 +430,6 @@ if (__name__ == "__main__"):
         
     if command == "browser-homepage": set_browser_homepage()
     if command == "toggle-jump-to-last-unwatched": toggle_jump_to_last_unwatched()
+    if command == "boxeedin": boxeedin()
 
     if command == "shutdown": shutdown()

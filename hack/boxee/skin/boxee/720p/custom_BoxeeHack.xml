@@ -76,6 +76,14 @@
 					<onclick>SetFocus(402)</onclick> -->
 					<label>About</label>
 				</control>
+				<control type="togglebutton" id="500">
+					<include>SettingsCategoryToggleButton</include>
+					<onright>SetFocus(501)</onright>
+					<usealttexture>ControlGroup(501).HasFocus()</usealttexture>
+					<onclick>SetFocus(501)</onclick>
+					<onclick>SetFocus(502)</onclick>
+					<label>Server</label>
+				</control>
 			</control>
 			
 			<!-- GENERAL -->
@@ -588,6 +596,17 @@
 						<wrapmultiline>true</wrapmultiline>
 						<label>Chris Eybergen, JoHannes Hiller, Matthew Schreiber, Amin Bahadori, Michael Hawthorne, Korhan Tekin, Scooter, LLC, Jordi Llonch Esteve, Stephan Schill, Kevin Sartori, Helge Odland, Gabriel Tapia, Magnus Pettersson, Boris Kushkuley, Craig Havens, Jonas Ranerfors, Ole Hermann Melby, Stuart Cain, Ramon Hansman, Fredric Tvetberg, Lars Jaderfeldt, Einar Afiouni, Gregor Schinzel, Paul Silkiner, Carsten Kropp, Soufian Elamriti, Jan Martens, Pim Smeets, Gustavo Yenes Conde, Lars Karlsson, Nick Maynard, Elias Sørensen, Ole Hermann Melby, Mino Polverino, Scooter LLC, Victor Von Doom, Ross Neufeld, Mark Ashley, Dylan Michael, Raphael T Victorian, Jonathan Benson, Björn Nilsson, Jan-Bart de Vreede, Jan Ferme, Jeremy Huval, Samuel Berner, Mathias Klüft, Josiah Thomas, Chris Gildart, Paul Rodriguez II</label>
 					</control>
+				</control>
+			</control>
+			<!-- SERVER -->
+			<control type="grouplist" id="501">
+				<include>SettingsCategoryArea</include>
+				<visible>ControlGroup(501).HasFocus() | Control.HasFocus(500)</visible>
+				<control type="radiobutton" id="511">
+					<include>SettingsRadioButton</include>
+					<label>Use Boxeed.In Server</label>
+					<selected>StringCompare(Skin.String(boxeedin),1)</selected>
+					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_settings.py", "boxeedin")</onclick>
 				</control>
 			</control>
 		</control>
