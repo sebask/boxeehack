@@ -35,7 +35,7 @@ key = C2FAFCBE34610608
         common.set_string("boxeeplus-version", version_local )
 
 def get_home_enabled_default_list():
-    return "-,friends|Built-in,watchlater,shows|Built-in,movies|Built-in,music|Built-in,apps,files,web"
+    return "-,friends|Built-in,watchlater,shows|Built-in,movies|Built-in,music|Built-in,apps,files,web,photos"
     
 def set_home_enabled_strings():
     homeitems = get_home_enabled_default_list().split(",")
