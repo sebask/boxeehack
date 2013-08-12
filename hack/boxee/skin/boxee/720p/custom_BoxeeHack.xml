@@ -109,7 +109,7 @@
 					<include>SettingsButton</include>
 					<label>Check for new version...</label>
 					<label2>$INFO[Skin.String(boxeeplus-version)]</label2>
-					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_settings.py", "version")</onclick>
+					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_update.py", "version")</onclick>
 				</control>
 			</control>
 			
