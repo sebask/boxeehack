@@ -93,7 +93,7 @@ def update():
 
 		xbmc.executebuiltin("Notification(,Extracting Archive,120000)")
 		mc.ShowDialogWait()
-		#os.system("/bin/busybox unzip /download/boxeehack.zip -d /download/")
+		os.system("/bin/busybox unzip /download/boxeehack.zip -d /download/")
 		mc.HideDialogWait()
 
 		mc.ShowDialogNotification("Extraction Complete")
