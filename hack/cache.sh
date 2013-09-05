@@ -6,7 +6,6 @@ for m in /media/*; do
 		for p in /data/.boxee/UserData/profiles/*; do
 			b=`basename ${p}`
 			if [ ! -d ${m}/cache/${b}/Thumbnails ]; then
-				echo "Creating Cache"
 				mkdir -p ${m}/cache/${b}/Thumbnails
 				mkdir -p ${m}/cache/${b}/Thumbnails/Music
 				mkdir -p ${m}/cache/${b}/Thumbnails/Pictures
@@ -14,7 +13,7 @@ for m in /media/*; do
 				mkdir -p ${m}/cache/${b}/Thumbnails/Video
 			fi
 			if [ -d ${m}/cache/${b}/Thumbnails ]; then
-				rm -fr ${p}/Thumbnails/Video/*
+				find ${p}/Thumbnails/ -name \*.tbn | xargs rm
 				mount -o bind ${m}/cache/${b}/Thumbnails ${p}/Thumbnails
 			fi
 		done
