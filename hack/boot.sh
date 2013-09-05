@@ -1,5 +1,6 @@
 #!/bin/sh
 sh /data/hack/skin.sh &
+sh /data/hack/cache.sh &
 sh /data/hack/splash.sh &
 sh /data/hack/visualiser.sh &
 sh /data/hack/subtitles.sh &
