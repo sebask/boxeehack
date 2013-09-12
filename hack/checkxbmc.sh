@@ -1,4 +1,4 @@
-for m in /media/*; do
+for m in /tmp/mnt/*; do
 	if [ -f ${m}/xbmc.bin ]; then
 		cd ${m}
 		/etc/rc3.d/U94boxeehal stop

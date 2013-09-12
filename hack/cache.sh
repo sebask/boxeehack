@@ -1,8 +1,6 @@
 #!/bin/sh
-found=0
-for m in /media/*; do
-	if [[ -d ${m}/cache ]] && [[ ${found} -eq 0 ]]; then
-		found=1
+for m in /tmp/mnt/*; do
+	if [ -d ${m}/cache ]; then
 		for p in /data/.boxee/UserData/profiles/*; do
 			b=`basename ${p}`
 			if [ ! -d ${m}/cache/${b}/Thumbnails ]; then
@@ -17,6 +15,6 @@ for m in /media/*; do
 				mount -o bind ${m}/cache/${b}/Thumbnails ${p}/Thumbnails
 			fi
 		done
-		
+		break
 	fi
 done
