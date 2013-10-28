@@ -2,10 +2,15 @@
 while true
 do
 	for m in /tmp/mnt/*; do
-        	if [ -f ${m}/xbmc.bin ]; then
-			cd ${m}
-			chmod +x ${m}/xbmc.bin
-			HOME=${m} GCONV_PATH=${m}/gconv AE_ENGINE=active PYTHONPATH=${m}/python2.7:${m}/python2.7/lib-dynload PYTHONHOME=${m}/python2.7:${m}/python2.7/lib-dynload XBMC_HOME=${m} ${m}/xbmc.bin --standalone -p 2>>/tmp/xbmc.log
+        if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
+			# If XBMC is in a folder called xbmc instead of the root
+			p=${m}
+			if [ -f ${m}/xbmc/xbmc.bin ]; then
+				p=${m}/xbmc
+			fi
+			cd ${p}
+			chmod +x ${p}/xbmc.bin
+			HOME=${p} GCONV_PATH=${p}/gconv AE_ENGINE=active PYTHONPATH=${p}/python2.7:${p}/python2.7/lib-dynload PYTHONHOME=${p}/python2.7:${p}/python2.7/lib-dynload XBMC_HOME=${p} ${p}/xbmc.bin --standalone -p 2>>/tmp/xbmc.log
 			ret=$?
 			break
 		fi
@@ -30,3 +35,4 @@ do
 		* ) ;;
 	esac
 done
+
