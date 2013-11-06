@@ -1,5 +1,5 @@
 for m in /tmp/mnt/*; do
-	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc.bin ]; then
+	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
 		/etc/rc3.d/U94boxeehal stop
 		/etc/rc3.d/U99boxee stop
 		killall BoxeeHal
