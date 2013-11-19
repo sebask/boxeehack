@@ -10,7 +10,7 @@ do
 			fi
 			cd ${p}
 			chmod +x ${p}/xbmc.bin
-			HOME=${p} GCONV_PATH=${p}/gconv AE_ENGINE=active PYTHONPATH=${p}/python2.7:${p}/python2.7/lib-dynload PYTHONHOME=${p}/python2.7:${p}/python2.7/lib-dynload XBMC_HOME=${p} ${p}/xbmc.bin --standalone -p 2>>/tmp/xbmc.log
+			HOME=${p} GCONV_PATH=${p}/gconv AE_ENGINE=active PYTHONPATH=${p}/python2.7:${p}/python2.7/lib-dynload PYTHONHOME=${p}/python2.7:${p}/python2.7/lib-dynload XBMC_HOME=${p} ${p}/xbmc.bin --standalone -p -l /var/run/lirc/lircd 2>>/tmp/xbmc.log
 			ret=$?
 			break
 		fi
