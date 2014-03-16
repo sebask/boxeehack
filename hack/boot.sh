@@ -1,4 +1,5 @@
 #!/bin/sh
+sh /data/hack/remote.sh &
 sh /data/hack/cleanup.sh &
 sh /data/hack/skin.sh &
 sh /data/hack/cache.sh &
