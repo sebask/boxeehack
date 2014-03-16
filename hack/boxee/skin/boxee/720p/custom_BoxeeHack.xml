@@ -386,6 +386,25 @@
 					<selected>StringCompare(Skin.String(homeenabled-photos),1)</selected>
 					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_settings.py", "homeenabled", "photos")</onclick>
 				</control>
+				<control type="group" id="113">
+					<height>56</height>
+					<control type="label">
+						<include>SettingsLabel</include>
+						<label>Various</label>
+					</control>
+				</control>
+				<control type="radiobutton" id="114">
+					<include>SettingsRadioButton</include>
+					<label>Hide Weather</label>
+					<selected>StringCompare(Skin.String(homeenabled-weather),1)</selected>
+					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_settings.py", "homeenabled", "weather")</onclick>
+				</control>
+				<control type="radiobutton" id="115">
+					<include>SettingsRadioButton</include>
+					<label>Hide Clock</label>
+					<selected>StringCompare(Skin.String(homeenabled-clock),1)</selected>
+					<onclick>XBMC.RunScript("special://skin/720p/scripts/boxeehack_settings.py", "homeenabled", "clock")</onclick>
+				</control>				
 			</control>
 			
 			<!-- SUBTITLES -->
