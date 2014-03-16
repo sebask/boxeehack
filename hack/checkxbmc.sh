@@ -1,3 +1,4 @@
+#!/bin/sh
 for m in /tmp/mnt/*; do
 	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
 		/etc/rc3.d/U94boxeehal stop
