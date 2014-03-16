@@ -608,10 +608,8 @@
 					<onup>7000</onup>
 				</control>
 				<control type="group" id="8000">
-					<animation effect="slide" start="0,0" end="-1248,0" time="450" condition="Container(8200).Position(3) | Container(8200).Position(4) | Container(8200).Position(5)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-2496,0" time="450" condition="Container(8200).Position(6) | Container(8200).Position(7) | Container(8200).Position(8)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-3744,0" time="450" condition="Container(8200).Position(9) | Container(8200).Position(10) | Container(8200).Position(11)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-4992,0" time="450" condition="Container(8200).Position(12) | Container(8200).Position(13) | Container(8200).Position(14)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-1120,0" time="250" condition="Container(8200).Position(5) | Container(8200).Position(6) | Container(8200).Position(7) | Container(8200).Position(8) | Container(8200).Position(9)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-2240,0" time="250" condition="Container(8200).Position(10) | Container(8200).Position(11) | Container(8200).Position(12) | Container(8200).Position(13) | Container(8200).Position(14) | Container(8200).Position(15)">Conditional</animation>
 					<visible>boxee.HasInternetConnection | substring(Skin.String(featured-feed),boxeedb://)</visible>
 					<enable>boxee.HasInternetConnection | substring(Skin.String(featured-feed),boxeedb://)</enable>
 					<posx>0</posx>
@@ -631,12 +629,12 @@
 						<visible>boxee.HasInternetConnection | substring(Skin.String(featured-feed),boxeedb://)</visible>
 						<enable>boxee.HasInternetConnection | substring(Skin.String(featured-feed),boxeedb://)</enable>
 						<orientation>horizontal</orientation>
-						<itemlayout width="416" height="256">
+						<itemlayout width="224" height="256">
 							<control type="image">
 								<visible>!IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">$INFO[ListItem.Thumb]</texture>
 								<bordertexture srcborder="30" border="20">browse/thumbnail-bg-off.png</bordertexture>
@@ -647,7 +645,7 @@
 								<visible>IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">browse/thumbnail-default-landscape.png</texture>
 								<bordertexture srcborder="30" border="20">browse/thumbnail-bg-off.png</bordertexture>
@@ -658,7 +656,7 @@
 							<control type="image">
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>253</height>
 				                <texture background="true">$INFO[ListItem.Property(custom:fanart)]</texture>
 								<bordersize>8</bordersize>
@@ -706,13 +704,13 @@
 								<textcolor>mediumgreyheidi</textcolor>
 							</control>
 						</itemlayout>
-						<focusedlayout width="416" height="256">
+						<focusedlayout width="224" height="256">
 							<control type="image">
 								<visible>!Control.HasFocus(8200)</visible>
 								<visible>!IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">$INFO[ListItem.Thumb]</texture>
 								<bordertexture srcborder="30" border="20">browse/thumbnail-bg-off.png</bordertexture>
@@ -724,7 +722,7 @@
 								<visible>IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">browse/thumbnail-default-landscape.png</texture>
 								<bordertexture srcborder="30" border="20">browse/thumbnail-bg-off.png</bordertexture>
@@ -736,7 +734,7 @@
 								<visible>!IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">$INFO[ListItem.Thumb]</texture>
 								<aligny>top</aligny>
@@ -749,7 +747,7 @@
 								<visible>IsEmpty(ListItem.Thumb)</visible>
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>252</height>
 								<texture fallback="browse/thumbnail-default-landscape.png" blend="false">browse/thumbnail-default-landscape.png</texture>
 								<bordertexture srcborder="30" border="20">browse/thumbnail-bg-on.png</bordertexture>
@@ -759,7 +757,7 @@
 							<control type="image">
 								<posx>17</posx>
 								<posy>0</posy>
-								<width>384</width>
+								<width>192</width><!--/sebedit-->
 								<height>253</height>
 				                <texture background="true">$INFO[ListItem.Property(custom:fanart)]</texture>
 								<bordersize>8</bordersize>
@@ -868,14 +866,6 @@
 			<enabled>!StringCompare(Skin.String(featured-feed),about:blank)</enabled>
 			<control type="group">
 				<control type="image">
-					<posx>586</posx>
-					<posy>687</posy>
-					<width>12</width>
-					<height>12</height>
-					<texture>universal/graphic-steps-dot.png</texture>
-					<colordiffuse>mediumgreyheidi</colordiffuse>
-				</control>
-				<control type="image">
 					<posx>602</posx>
 					<posy>687</posy>
 					<width>12</width>
@@ -900,19 +890,9 @@
 					<colordiffuse>mediumgreyheidi</colordiffuse>
 				</control>
 				<control type="image">
-					<posx>650</posx>
-					<posy>687</posy>
-					<width>12</width>
-					<height>12</height>
-					<texture>universal/graphic-steps-dot.png</texture>
-					<colordiffuse>mediumgreyheidi</colordiffuse>
-				</control>
-				<control type="image">
-					<animation effect="slide" start="0,0" end="16,0" time="0" condition="Container(8200).Position(3) | Container(8200).Position(4) | Container(8200).Position(5)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="32,0" time="0" condition="Container(8200).Position(6) | Container(8200).Position(7) | Container(8200).Position(8)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="48,0" time="0" condition="Container(8200).Position(9) | Container(8200).Position(10) | Container(8200).Position(11)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="64,0" time="0" condition="Container(8200).Position(12) | Container(8200).Position(13) | Container(8200).Position(14)">Conditional</animation>
-					<posx>586</posx>
+					<animation effect="slide" start="0,0" end="16,0" time="0" condition="Container(8200).Position(5) | Container(8200).Position(6) | Container(8200).Position(7) | Container(8200).Position(8) | Container(8200).Position(9)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="32,0" time="0" condition="Container(8200).Position(10) | Container(8200).Position(11) | Container(8200).Position(12) | Container(8200).Position(13) | Container(8200).Position(14) | Container(8200).Position(15)">Conditional</animation>
+					<posx>602</posx>
 					<posy>687</posy>
 					<width>12</width>
 					<height>12</height>
