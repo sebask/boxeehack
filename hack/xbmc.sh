@@ -1,4 +1,7 @@
 #!/bin/sh
+if [ `ps -A | grep -c xbmc.bin` -eq 1 ]; then
+	exit
+fi
 while true
 do
 	for m in /tmp/mnt/*; do

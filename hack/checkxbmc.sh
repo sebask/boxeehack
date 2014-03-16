@@ -8,7 +8,8 @@ for m in /tmp/mnt/*; do
 		killall Boxee
 		killall run_boxee.sh
 		mount -o bind /data/hack/xbmc.sh /opt/boxee/BoxeeLauncher
-		break
+		/opt/boxee/BoxeeLauncher &
+		exit
 	fi
 done
 
