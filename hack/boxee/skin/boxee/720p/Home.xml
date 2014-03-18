@@ -100,7 +100,7 @@
 					</control>
 					<!-- WEATHER -->
 					<control type="group">
-						<visible>boxee.HasInternetConnection + Weather.IsFetched + StringCompare(Skin.String(homeenabled-weather),0)</visible>						
+						<visible>boxee.HasInternetConnection + Weather.IsFetched + StringCompare(Skin.String(homeenabled-weather),1)</visible>						
 						<width>100</width>
 						<control type="button" id="8888">
 							<onleft>2410</onleft>
@@ -174,7 +174,7 @@
 					</control>
 					<!-- CLOCK -->
 					<control type="grouplist">
-						<visible>StringCompare(Skin.String(homeenabled-clock),0)</visible>
+						<visible>StringCompare(Skin.String(homeenabled-clock),1)</visible>
 						<posy>23</posy>
 						<orientation>horizontal</orientation>
 						<itemgap>0</itemgap>
