@@ -407,6 +407,8 @@ def check_new_version():
 
 def shutdown():
     os.system("poweroff")
+def reboot():
+    os.system("reboot")
 
 if (__name__ == "__main__"):
     command = sys.argv[1]
@@ -428,3 +430,4 @@ if (__name__ == "__main__"):
     if command == "toggle-jump-to-last-unwatched": toggle_jump_to_last_unwatched()
 
     if command == "shutdown": shutdown()
+    if command == "reboot": reboot()
