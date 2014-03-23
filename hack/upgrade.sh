@@ -1,3 +1,3 @@
 #!/bin/sh
-curl http://boxeed.in/boxeeplus/install.sh -o /download/install.sh
+curl http://dl.boxeed.in/install.sh -o /download/install.sh
 sh /download/install.sh &

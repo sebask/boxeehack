@@ -364,7 +364,7 @@ def subtitle_provider(method, section, provider=None):
 # Get the remote version number from github
 def get_remote_version():
     import urllib2
-    u = urllib2.urlopen('http://boxeed.in/boxeeplus/version')
+    u = urllib2.urlopen('http://dl.boxeed.in/version')
     version_remote = "%s" % u.read()
     return version_remote
 

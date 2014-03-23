@@ -9,7 +9,7 @@ import urllib2
 
 # Get the remote version number from github
 def get_remote_version():
-	u = urllib2.urlopen('http://boxeed.in/boxeeplus/version')
+	u = urllib2.urlopen('http://dl.boxeed.in/version')
 	version_remote = "%s" % u.read()
 	return version_remote
 
@@ -77,8 +77,8 @@ def update():
 		xbmc.executebuiltin("Notification(,Downloading Boxee+,120000)")
 
 		mc.ShowDialogWait()
-		os.system("/opt/local/bin/curl -L http://boxeed.in/boxeeplus/boxeehack.zip -o /download/boxeehack.zip")
-		os.system("/opt/local/bin/curl -L http://boxeed.in/boxeeplus/boxeehack.md5 -o /download/boxeehack.md5")
+		os.system("/opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.zip -o /download/boxeehack.zip")
+		os.system("/opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.md5 -o /download/boxeehack.md5")
 		dm = common.file_get_contents("/download/boxeehack.md5")
 		os.system("md5sum /download/boxeehack.zip | awk '{ print $1 }'> /download/boxeehack.md52")
 		tm = common.file_get_contents("/download/boxeehack.md5")
