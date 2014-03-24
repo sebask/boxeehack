@@ -77,8 +77,8 @@ if [ "$ver_1" != "$ver_2" ] ; then
 fi
 
 # make everything runnable
-chmod -R +x /data/hack/*.sh
-chmod -R +x /data/hack/bin/*
+chmod 777 /data/hack/*.sh
+chmod 777 /data/hack/bin/*
 
 # stop Boxee from running and screwing things up
 echo "Killing Boxee processes" >> $BASEDIR/install.log

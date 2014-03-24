@@ -1,5 +1,9 @@
 #!/bin/sh
+# Ensure everything can start
 dos2unix /data/hack/*.sh
+chmod 777 /data/hack/*.sh
+chmod 777 /data/hack/bin/*
+
 sh /data/hack/mount.sh &
 sh /data/hack/cleanup.sh &
 sh /data/hack/skin.sh &

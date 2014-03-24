@@ -112,8 +112,8 @@ def update():
 		mc.ShowDialogWait()
 		os.system("rm -Rf /data/hack")
 		os.system("cp -R /download/boxeehack-master/hack /data/")
-		os.system("chmod -R +x /data/hack/*.sh")
-		os.system("chmod -R +x /data/hack/bin/*")
+		os.system("chmod 777 /data/hack/*.sh")
+		os.system("chmod 777 /data/hack/bin/*")
 		mc.HideDialogWait()
 
 	mc.ShowDialogNotification("Verifying Installation")
