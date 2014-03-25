@@ -1,4 +1,11 @@
 #!/bin/sh
+# Check if XBMC is installed internally
+if [ -f /data/hack/xbmc/xbmc.sqfs && -f /data/hack/xbmc_sqfs.sh ]; then
+        sh /data/hack/xbmc_sqfs.sh &
+        exit
+fi
+
+# Check if we have XBMC installed on n external drive
 for m in /tmp/mnt/*; do
 	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
 		/etc/rc3.d/U94boxeehal stop
