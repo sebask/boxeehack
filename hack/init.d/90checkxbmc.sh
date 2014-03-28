@@ -5,7 +5,7 @@ if [ -f /data/hack/xbmc/xbmc.sqfs && -f /data/hack/xbmc_launch.sh ]; then
         exit
 fi
 
-# Check if we have XBMC installed on n external drive
+# Check if we have XBMC installed on an external drive
 for m in /tmp/mnt/*; do
 	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
 		/etc/rc3.d/U94boxeehal stop
@@ -19,4 +19,3 @@ for m in /tmp/mnt/*; do
 		exit
 	fi
 done
-

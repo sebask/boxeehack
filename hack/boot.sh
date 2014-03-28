@@ -1,20 +1,12 @@
 #!/bin/sh
 # Ensure everything can start
 dos2unix /data/hack/*.sh
+dos2unix /data/hack/init.d/*.sh
 chmod 777 /data/hack/*.sh
 chmod 777 /data/hack/bin/*
+chmod 777 /data/hack/init.d/*
 
-sh /data/hack/mount.sh &
-sh /data/hack/cleanup.sh &
-sh /data/hack/skin.sh &
-sh /data/hack/cache.sh &
-sh /data/hack/splash.sh &
-sh /data/hack/visualiser.sh &
-sh /data/hack/subtitles.sh &
-sh /data/hack/logo.sh &
-sh /data/hack/apps.sh &
-sh /data/hack/network.sh &
-sh /data/hack/telnet.sh &
-sh /data/hack/ftp.sh &
-sh /data/hack/plugins.sh &
-sh /data/hack/checkxbmc.sh &
+find /data/hack/init.d -type f | sort | while read line
+do
+        sh $line
+done
