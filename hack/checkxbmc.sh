@@ -1,7 +1,7 @@
 #!/bin/sh
 # Check if XBMC is installed internally
-if [ -f /data/hack/xbmc/xbmc.sqfs && -f /data/hack/xbmc_sqfs.sh ]; then
-        sh /data/hack/xbmc_sqfs.sh &
+if [ -f /data/hack/xbmc/xbmc.sqfs && -f /data/hack/xbmc_launch.sh ]; then
+        sh /data/hack/xbmc_launch.sh &
         exit
 fi
 
