@@ -7,7 +7,7 @@ fi
 
 # Check if we have XBMC installed on an external drive
 for m in /tmp/mnt/*; do
-	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ]; then
+	if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ] || [ -f ${m}/kodi.bin ] || [ -f ${m}/xbmc/kodi.bin ]; then
 		/etc/rc3.d/U94boxeehal stop
 		/etc/rc3.d/U99boxee stop
 		killall BoxeeHal
