@@ -1,4 +1,5 @@
 #!/bin/sh
+rm -f /data/hack/advancedsettings.xml
 rm -f /data/hack/apps.sh
 rm -f /data/hack/cache.sh
 rm -f /data/hack/checkxbmc.sh
