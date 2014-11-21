@@ -1,8 +1,10 @@
 #!/bin/sh
 # Check if XBMC is installed internally
 if [ -f /data/hack/xbmc/xbmc.sqfs && -f /data/hack/xbmc_launch.sh ]; then
-        sh /data/hack/xbmc_launch.sh &
-        exit
+	if [ ! -f /data/hack/init.d/99xbmc_launch.sh ]; then
+		sh /data/hack/xbmc_launch.sh &
+	fi
+	exit
 fi
 
 # Check if we have XBMC installed on an external drive
