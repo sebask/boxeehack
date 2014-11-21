@@ -1,18 +1,21 @@
 #!/bin/sh
-if [ `ps -A | grep -c xbmc.bin` -eq 1 ]; then
+if [ `ps -A | grep -c xbmc.bin` -ge 1 ]; then
 	exit
 fi
-if [ `ps -A | grep -c kodi.bin` -eq 1 ]; then
+if [ `ps -A | grep -c kodi.bin` -ge 1 ]; then
 	exit
 fi
 while true
 do
 	for m in /tmp/mnt/*; do
-        if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ] || [ -f ${m}/kodi.bin ] || [ -f ${m}/xbmc/kodi.bin ]; then
+		if [ -f ${m}/xbmc.bin ] || [ -f ${m}/xbmc/xbmc.bin ] || [ -f ${m}/kodi.bin ] || [ -f ${m}/xbmc/kodi.bin ] || [ -f ${m}/kodi/kodi.bin ]; then
 			# If XBMC is in a folder called xbmc instead of the root
 			p=${m}
 			if [ -f ${m}/xbmc/xbmc.bin ] || [ -f ${m}/xbmc/kodi.bin ]; then
 				p=${m}/xbmc
+			fi
+			if [ -f ${m}/kodi/kodi.bin ]; then
+				p=${m}/kodi
 			fi
 			cd ${p}
 			if [ -f ${p}/kodi.bin ]; then
