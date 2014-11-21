@@ -16,7 +16,7 @@ for m in /tmp/mnt/*; do
 		killall BoxeeLauncher
 		killall Boxee
 		killall run_boxee.sh
-		mount -o bind /data/hack/xbmc.sh /opt/boxee/BoxeeLauncher
+		mount -o bind /data/hack/misc/xbmc.sh /opt/boxee/BoxeeLauncher
 		/opt/boxee/BoxeeLauncher &
 		exit
 	fi
