@@ -18,6 +18,15 @@ umount -f /opt/boxee/visualisations/projectM
 
 echo "$BASEDIR/hack" >> $BASEDIR/install.log
 
+for f in /download/*; do
+	if [ ${f} != "/download/xbmc" ]; then
+		if ! [ -h "${f}" ]; then
+			echo "Removing ${f}"  >> $BASEDIR/install.log
+			rm -fr "${f}"
+		fi
+	fi
+done
+
 if [ -d "$BASEDIR/hack" ];
 then
 	echo "Hack Directory found on USB drive" >> $BASEDIR/install.log
@@ -42,6 +51,7 @@ else
 	echo "MD5 needed: $md5_2" >> $BASEDIR/install.log
     if [ "$md5_1" != "$md5_2" ] ; then
         echo "MD5s do not match, aborting" >> $BASEDIR/install.log
+		echo "MD5s do not match, aborting.  Please try installing again"
 		dtool 6 1 0 0
 		dtool 6 2 0 50
         exit
