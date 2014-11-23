@@ -96,7 +96,7 @@ killall U99boxee; killall BoxeeLauncher; killall run_boxee.sh; killall Boxee; ki
 
 # run the hack at next boot
 echo "Making changes to XML files" >> $BASEDIR/install.log
-mv /data/hack/advancedsettings.xml /data/.boxee/UserData/advancedsettings.xml
+mv /data/hack/misc/advancedsettings.xml /data/.boxee/UserData/advancedsettings.xml
 /bin/busybox sed -i 's/"hostname":"\([^;]*\);.*","p/"hostname":"\1","p/g' /data/etc/boxeehal.conf
 /bin/busybox sed -i 's/<hostname>\([^;]*\);.*<\/hostname>/<hostname>\1<\/hostname>/g' /data/.boxee/UserData/guisettings.xml
 /bin/busybox sed -i 's/","password/;sh \/data\/hack\/boot.sh","password/g' /data/etc/boxeehal.conf
