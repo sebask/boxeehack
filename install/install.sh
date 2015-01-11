@@ -18,6 +18,15 @@ umount -f /opt/boxee/visualisations/projectM
 
 echo "$BASEDIR/hack" >> $BASEDIR/install.log
 
+for f in /download/*; do
+	if [ ${f} != "/download/xbmc" ]; then
+		if ! [ -h "${f}" ]; then
+			echo "Removing ${f}"  >> $BASEDIR/install.log
+			rm -fr "${f}"
+		fi
+	fi
+done
+
 if [ -d "$BASEDIR/hack" ];
 then
 	echo "Hack Directory found on USB drive" >> $BASEDIR/install.log
@@ -33,15 +42,16 @@ else
     rm /download/boxeehack.zip
     cd /download
 	echo "Downloading boxeehack.zip" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L http://boxeed.in/boxeeplus/boxeehack.zip -o boxeehack.zip
+    /opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.zip -o boxeehack.zip
 	echo "Downloading boxeehack.md5" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L http://boxeed.in/boxeeplus/boxeehack.md5 -o boxeehack.md5
+    /opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.md5 -o boxeehack.md5
     md5_1=$(md5sum boxeehack.zip | awk '{print $1}')
     md5_2=$(awk '{print $1}' "boxeehack.md5")
 	echo "MD5 of zip: $md5_1" >> $BASEDIR/install.log
 	echo "MD5 needed: $md5_2" >> $BASEDIR/install.log
     if [ "$md5_1" != "$md5_2" ] ; then
         echo "MD5s do not match, aborting" >> $BASEDIR/install.log
+		echo "MD5s do not match, aborting.  Please try installing again"
 		dtool 6 1 0 0
 		dtool 6 2 0 50
         exit
@@ -77,8 +87,8 @@ if [ "$ver_1" != "$ver_2" ] ; then
 fi
 
 # make everything runnable
-chmod -R +x /data/hack/*.sh
-chmod -R +x /data/hack/bin/*
+chmod 777 /data/hack/*.sh
+chmod 777 /data/hack/bin/*
 
 # stop Boxee from running and screwing things up
 echo "Killing Boxee processes" >> $BASEDIR/install.log
@@ -86,7 +96,7 @@ killall U99boxee; killall BoxeeLauncher; killall run_boxee.sh; killall Boxee; ki
 
 # run the hack at next boot
 echo "Making changes to XML files" >> $BASEDIR/install.log
-mv /data/hack/advancedsettings.xml /data/.boxee/UserData/advancedsettings.xml
+mv /data/hack/misc/advancedsettings.xml /data/.boxee/UserData/advancedsettings.xml
 /bin/busybox sed -i 's/"hostname":"\([^;]*\);.*","p/"hostname":"\1","p/g' /data/etc/boxeehal.conf
 /bin/busybox sed -i 's/<hostname>\([^;]*\);.*<\/hostname>/<hostname>\1<\/hostname>/g' /data/.boxee/UserData/guisettings.xml
 /bin/busybox sed -i 's/","password/;sh \/data\/hack\/boot.sh","password/g' /data/etc/boxeehal.conf
